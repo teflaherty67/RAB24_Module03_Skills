@@ -11,11 +11,7 @@
             Document doc = uidoc.Document;
 
             // instantiate the class
-            Building theater = new Building();
-            theater.Name = "Grand Opera House";
-            theater.Address = "5 Main Street";
-            theater.NumFloors = 4;
-            theater.Area = 35000;
+            Building theater = new Building("Grand Opera House", "5 Main Street", 4, 35000);
 
             return Result.Succeeded;
         }
