@@ -10,7 +10,12 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            // Your code goes here
+            // instantiate the class
+            Building theater = new Building();
+            theater.Name = "Grand Opera House";
+            theater.Address = "5 Main Street";
+            theater.NumFloors = 4;
+            theater.Area = 35000;
 
             return Result.Succeeded;
         }
@@ -32,6 +37,25 @@
         }
     }
 
+    
+    // create a class
+    public class Building
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int NumFloors { get; set; }
+        public double Area { get; set; }
 
+        // create a constructor
+        public Building(string _name,  string _address, int _numFloors, double _area)
+        {
+            Name = _name;
+            Address = _address;
+            NumFloors = _numFloors;
+            Area = _area;
+        }
+
+
+    }
 
 }
