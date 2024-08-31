@@ -10,8 +10,18 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            // instantiate the class
+            // create instances of the class
             Building theater = new Building("Grand Opera House", "5 Main Street", 4, 35000);
+            Building hotel = new Building("Fancy Hotel", "10 Main Street", 10, 10000);
+            Building office = new Building("Big Office Building", "15 Main Street", 4, 150000);
+
+            // create a list of buildings
+            List<Building> buildingList = new List<Building>();
+            buildingList.Add(theater);
+            buildingList.Add(hotel);
+            buildingList.Add(office);
+            buildingList.Add(new Building("Hospital", "20 Main Street", 20, 350000));
+
 
             return Result.Succeeded;
         }
