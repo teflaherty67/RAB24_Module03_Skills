@@ -60,8 +60,26 @@
             NumFloors = _numFloors;
             Area = _area;
         }
-
-
     }
 
+    public class Neighbohood
+    {
+        public string Name { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public List<Building> BuildingList { get; set; }
+
+        public Neighbohood(string _name, string _city, string _state, List<Building> _buildings)
+        {
+            Name = _name;
+            City = _city;
+            State = _state;
+            BuildingList = _buildings;
+        }
+
+        public int GetBuildingCount()
+        {
+            return BuildingList.Count;
+        }
+    }
 }
