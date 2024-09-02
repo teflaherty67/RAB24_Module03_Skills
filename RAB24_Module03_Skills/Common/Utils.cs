@@ -25,5 +25,33 @@
 
             return null;
         }
+
+        #region Parameters        
+
+        internal static string GetParameterValueAsString(Element element, string paramName)
+        {
+            IList<Parameter> paramList = element.GetParameters(paramName);
+            Parameter curParam = paramList.First();
+
+            return curParam.AsString();
+        }
+
+        internal static void SetParameterValue(Element element, string paramName, string value)
+        {
+            IList<Parameter> paramList = element.GetParameters(paramName);
+            Parameter curParam = paramList.First();
+            
+            curParam.Set(value);
+        }
+
+        internal static void SetParameterValue(Element element, string paramName, double value)
+        {
+            IList<Parameter> paramList = element.GetParameters(paramName);
+            Parameter curParam = paramList.First();
+
+            curParam.Set(value);
+        }
+
+        #endregion
     }
 }
