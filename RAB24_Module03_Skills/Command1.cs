@@ -37,7 +37,7 @@ namespace RAB24_Module03_Skills
                 .OfCategory(BuiltInCategory.OST_Rooms);
 
             // get the family symbol
-            FamilySymbol curFS = GetFamilySymbolByName(curDoc, "Desk", "60\" x 30\"");
+            FamilySymbol curFS = Utils.GetFamilySymbolByName(curDoc, "Desk", "60\" x 30\"");
 
             using (Transaction t = new Transaction(curDoc, "Insert family symbols"))
             {
@@ -62,24 +62,21 @@ namespace RAB24_Module03_Skills
                     // set parameter values
                     Utils.SetParameterValue(curRoom, "Floor Finish", "CT");
                 }
+
+                t.Commit();
+
+                // line splitting
+                string myLine = ("one, two, three, four, five");
+                string[] splitLine = myLine.Split(',');
+
+                TaskDialog.Show("Test", splitLine[0].Trim());
+                TaskDialog.Show("Test", splitLine[3].Trim());
             }
 
             return Result.Succeeded;
         }
 
-        internal FamilySymbol GetFamilySymbolByName(Document curDoc, string famName, string fsName)
-        {
-            FilteredElementCollector m_colFamSym = new FilteredElementCollector(curDoc)
-                .OfClass(typeof(FamilySymbol));
-
-            foreach (FamilySymbol curFS in m_colFamSym)
-            {
-                if (curFS.Name == fsName && curFS.FamilyName == famName)
-                    return curFS;
-            }
-
-            return null;
-        }
+        
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon

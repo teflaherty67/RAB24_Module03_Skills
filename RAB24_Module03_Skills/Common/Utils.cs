@@ -26,6 +26,25 @@
             return null;
         }
 
+        #region Families
+
+        internal static FamilySymbol GetFamilySymbolByName(Document curDoc, string famName, string fsName)
+        {
+            FilteredElementCollector m_colFamSym = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(FamilySymbol));
+
+            foreach (FamilySymbol curFS in m_colFamSym)
+            {
+                if (curFS.Name == fsName && curFS.FamilyName == famName)
+                    return curFS;
+            }
+
+            return null;
+        }
+
+
+        #endregion
+
         #region Parameters        
 
         internal static string GetParameterValueAsString(Element element, string paramName)
